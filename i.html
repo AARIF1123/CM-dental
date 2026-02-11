@@ -1,0 +1,2275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CM Dental | Aesthetic | Root Canal | Implant Center</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8CB12E;
+            --primary-dark: #6F8F23;
+            --primary-light: #A9C94E;
+            --secondary: #f8f9fa;
+            --accent: #e63946;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333;
+            --text: #444;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Animation Classes */
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in-left.visible,
+        .fade-in-right.visible,
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateX(0) translateY(0);
+        }
+
+        /* Header Styles */
+        .top-header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 14px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        }
+
+        .top-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-contact span {
+            margin-right: 20px;
+        }
+
+        .header-contact i {
+            margin-right: 5px;
+        }
+
+        .social-icons a {
+            color: var(--white);
+            margin-left: 15px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            opacity: 0.8;
+            transform: translateY(-2px);
+        }
+
+        /* Main Header */
+        .main-header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+            max-width: 200px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            margin-left: 10px;
+        }
+
+        .logo-text h1 {
+            color: var(--primary);
+            font-size: 24px;
+            margin-bottom: 3px;
+            letter-spacing: 1px;
+        }
+
+        .logo-text p {
+            color: var(--dark-gray);
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .appointment-btn {
+            background-color: var(--accent);
+            color: var(--white);
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-left: 30px;
+        }
+
+        .appointment-btn:hover {
+            background-color: #c1121f;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu-btn:hover {
+            transform: rotate(90deg);
+        }
+
+        /* IMPROVED BANNER SECTION */
+        .banner-section {
+            width: 100%;
+            height: 5vh;
+            min-height: 500px;
+            max-height: 800px;
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .banner-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .banner-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-color: #000;
+        }
+
+        .banner-slide.active {
+            opacity: 1;
+        }
+
+        .banner-slide:nth-child(1) {
+            background-image: url('cmref.jpg');
+            background-position: center center;
+        }
+
+        .banner-slide:nth-child(2) {
+            background-image: url('cmref2.jpg');
+            background-position: center center;
+        }
+
+        .banner-slide:nth-child(3) {
+            background-image: url('cmref3.jpg');
+            background-position: center center;
+        }
+
+        /* Add overlay to make text more readable */
+        .banner-slide::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* background: linear-gradient(135deg, rgba(140, 177, 46, 0.1) 0%, rgba(111, 143, 35, 0.3) 100%); */
+            z-index: 1;
+        }
+
+        /* Add text content to banner */
+        .banner-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 2;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .banner-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            font-weight: 700;
+        }
+
+        .banner-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .banner-btn {
+            background-color: var(--accent);
+            color: var(--white);
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .banner-btn:hover {
+            background-color: #c1121f;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .banner-nav {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .banner-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .banner-dot.active {
+            background-color: var(--primary);
+            transform: scale(1.3);
+        }
+
+        .banner-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            border: none;
+            font-size: 20px;
+        }
+
+        .banner-arrow:hover {
+            background-color: var(--primary);
+        }
+
+        .banner-arrow.prev {
+            left: 20px;
+        }
+
+        .banner-arrow.next {
+            right: 20px;
+        }
+
+        /* IMPROVED BACKGROUND DESIGNS FOR SECTIONS */
+
+        /* Hero Quote Section */
+        .hero-quote-section {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-quote-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: float 20s linear infinite;
+            z-index: 0;
+        }
+
+        .hero-quote {
+            font-size: 36px;
+            font-weight: 700;
+            font-style: italic;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-subquote {
+            font-size: 20px;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 100px 0;
+            background-color: var(--light-gray);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(140, 177, 46, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(111, 143, 35, 0.05) 0%, transparent 20%);
+            position: relative;
+        }
+
+        .video-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+            background-size: 200% 100%;
+            animation: gradientMove 3s ease infinite;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border: 3px solid var(--white);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(140, 177, 46, 0.1), rgba(111, 143, 35, 0.2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .video-container:hover .video-overlay {
+            opacity: 1;
+        }
+
+        .video-play-btn {
+            background-color: var(--accent);
+            color: var(--white);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-play-btn:hover {
+            background-color: #c1121f;
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .video-content {
+            text-align: center;
+            margin-top: 40px;
+            padding: 0 20px;
+        }
+
+        .video-content h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .video-content p {
+            font-size: 18px;
+            color: var(--text);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Clinic Photos Section */
+        .clinic-photos-section {
+            padding: 100px 0;
+            background-color: var(--white);
+            /* background-image: url(19943.jpg); */
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
+
+        .photos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .photo-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            height: 300px;
+            transition: all 0.4s ease;
+            border: 3px solid transparent;
+            background: var(--white);
+        }
+
+        .photo-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border-color: var(--primary);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.5s ease;
+        }
+
+        .photo-item:hover .photo-overlay {
+            transform: translateY(0);
+        }
+
+        .photo-overlay h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .photo-overlay p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Photo Modal */
+        .photo-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1100;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .photo-modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            border-radius: 10px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: var(--primary);
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            transform: translateY(-50%);
+        }
+
+        .modal-nav-btn {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 20px;
+        }
+
+        .modal-nav-btn:hover {
+            background-color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        /* About CM Dental Section */
+        .about-section {
+            padding: 100px 0;
+            background-color: var(--white);
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--primary-light) 0%, transparent 70%);
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-header h2 {
+            font-size: 42px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .about-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text);
+        }
+
+        .about-text p {
+            margin-bottom: 25px;
+        }
+
+        .about-text strong {
+            color: var(--primary);
+        }
+
+        .about-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            height: 500px;
+            border: 5px solid white;
+            position: relative;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            z-index: -1;
+            border-radius: 20px;
+            opacity: 0.3;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Specialities Section */
+        .specialities-section {
+            padding: 100px 0;
+            background-color: var(--light-gray);
+            background-image: 
+                linear-gradient(135deg, rgba(140, 177, 46, 0.05) 0%, transparent 50%),
+                linear-gradient(225deg, rgba(111, 143, 35, 0.05) 0%, transparent 50%);
+            position: relative;
+        }
+
+        .specialities-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+            background-size: 200% 100%;
+            animation: gradientMove 3s ease infinite;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .specialities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .speciality-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .speciality-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary);
+        }
+
+        .speciality-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            transform-origin: left;
+        }
+
+        .speciality-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .speciality-image {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .speciality-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .speciality-card:hover .speciality-image img {
+            transform: scale(1.05);
+        }
+
+        .speciality-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .speciality-content h3 {
+            color: var(--primary);
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .speciality-content p {
+            color: var(--text);
+            line-height: 1.7;
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+
+        .speciality-read-more {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        .speciality-read-more:hover {
+            color: var(--accent);
+        }
+
+        .speciality-read-more i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+
+        .speciality-read-more:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Dental Lab Section */
+        .dental-lab-section {
+            padding: 100px 0;
+            background-color: var(--white);
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(140, 177, 46, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(111, 143, 35, 0.05) 0%, transparent 50%);
+        }
+
+        .dental-lab-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .dental-lab-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            height: 400px;
+            position: relative;
+            border: 5px solid white;
+        }
+
+        .dental-lab-image::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            z-index: -1;
+            border-radius: 20px;
+            opacity: 0.3;
+        }
+
+        .dental-lab-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .dental-lab-text h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .dental-lab-text h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .dental-lab-text p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text);
+            margin-bottom: 25px;
+        }
+
+        .dental-lab-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background: rgba(140, 177, 46, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: rgba(140, 177, 46, 0.2);
+            transform: translateX(5px);
+        }
+
+        .feature-icon {
+            color: var(--primary);
+            font-size: 20px;
+            margin-top: 3px;
+        }
+
+        .feature-text {
+            font-size: 16px;
+            color: var(--text);
+        }
+
+        /* Treatments Section */
+        .treatments-section {
+            padding: 100px 0;
+            background-color: var(--white);
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            position: relative;
+        }
+
+        .treatments-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+            background-size: 200% 100%;
+            animation: gradientMove 3s ease infinite;
+        }
+
+        .treatments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .treatment-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+        }
+
+        .treatment-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .treatment-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            transform-origin: left;
+        }
+
+        .treatment-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .treatment-image {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .treatment-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .treatment-card:hover .treatment-image img {
+            transform: scale(1.05);
+        }
+
+        .treatment-header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 15px;
+            text-align: center;
+        }
+
+        .treatment-header h3 {
+            font-size: 20px;
+        }
+
+        .treatment-body {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .treatment-body p {
+            margin-bottom: 20px;
+            flex-grow: 1;
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .read-more {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: var(--accent);
+        }
+
+        .read-more i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            padding: 100px 0;
+            background-color: var(--light-gray);
+            background-image: 
+                radial-gradient(circle at 10% 10%, rgba(140, 177, 46, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 90% 90%, rgba(111, 143, 35, 0.05) 0%, transparent 50%);
+            position: relative;
+        }
+
+        .reviews-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .rating-number {
+            font-size: 60px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-right: 20px;
+        }
+
+        .rating-stars {
+            color: #ffc107;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .platforms {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .platform-item {
+            background-color: var(--white);
+            padding: 15px 30px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            font-weight: 600;
+            color: var(--dark-gray);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .platform-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
+        }
+
+        .platform-item:hover {
+            color: var(--white);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .platform-item:hover::before {
+            opacity: 1;
+        }
+
+        .platform-item span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: var(--white);
+            padding: 70px 0 30px;
+            background: linear-gradient(135deg, #222 0%, #333 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            color: var(--white);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            color: #aaa;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--primary);
+            margin-top: 3px;
+        }
+
+        .branch-info {
+            margin-bottom: 25px;
+        }
+
+        .branch-info h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-logo {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .footer-logo h2 {
+            color: var(--white);
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        .footer-logo p {
+            color: #aaa;
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            100% {
+                transform: translate(50px, 50px) rotate(360deg);
+            }
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1100px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .photos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .about-content,
+            .dental-lab-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .about-image {
+                height: 400px;
+            }
+            
+            .specialities-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-quote {
+                font-size: 30px;
+            }
+            
+            .hero-subquote {
+                font-size: 18px;
+            }
+            
+            .photos-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .treatment-image, .speciality-image {
+                height: 200px;
+            }
+            
+            .banner-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .banner-content p {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-header {
+                display: none;
+            }
+            
+            .main-header .container {
+                flex-wrap: wrap;
+            }
+            
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                margin-top: 20px;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .appointment-btn {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+            
+            .about-header h2,
+            .section-title h2 {
+                font-size: 32px;
+            }
+            
+            .dental-lab-text h2 {
+                font-size: 28px;
+            }
+            
+            .banner-section {
+                height: 60vh;
+                min-height: 400px;
+            }
+            
+            .banner-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+            
+            .dental-lab-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .video-content h2 {
+                font-size: 28px;
+            }
+            
+            .photo-item {
+                height: 250px;
+            }
+            
+            .treatment-image, .speciality-image {
+                height: 180px;
+            }
+            
+            .banner-content h1 {
+                font-size: 2rem;
+            }
+            
+            .banner-content p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .platforms {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .banner-section {
+                height: 50vh;
+                min-height: 350px;
+            }
+            
+            .hero-quote {
+                font-size: 24px;
+            }
+            
+            .hero-subquote {
+                font-size: 16px;
+            }
+            
+            .logo-img {
+                height: 50px;
+            }
+            
+            .logo-text h1 {
+                font-size: 20px;
+            }
+            
+            .logo-text p {
+                font-size: 10px;
+            }
+            
+            .banner-arrow {
+                width: 35px;
+                height: 35px;
+                font-size: 14px;
+            }
+            
+            .video-play-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+            
+            .modal-nav-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+            
+            .treatment-image, .speciality-image {
+                height: 160px;
+            }
+            
+            .specialities-grid,
+            .treatments-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .banner-content h1 {
+                font-size: 1.5rem;
+            }
+            
+            .banner-btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Header -->
+    <div class="top-header">
+        <div class="container">
+            <div class="header-contact">
+                <span><i class="fas fa-phone-alt"></i> +1 (555) 123-4567</span>
+                <span><i class="fas fa-envelope"></i> info@cmdental.com</span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header with Logo -->
+    <header class="main-header">
+        <div class="container">
+            <!-- Logo with Image -->
+            <a href="#home" class="logo">
+                <!-- Replace 'cm-dental-logo.png' with your actual logo file path -->
+                <img src="logo.png" alt="CM Dental Logo" class="logo-img">
+                <div class="logo-text">
+                 
+                </div>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#video">Clinic Tour</a></li>
+                <li><a href="#photos">Gallery</a></li>
+                <li><a href="#specialities">Specialities</a></li>
+                <li><a href="#treatments">Treatments</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="appointment-btn">BOOK AN APPOINTMENT</button>
+        </div>
+    </header>
+
+    <!-- IMPROVED BANNER Section -->
+    <section class="banner-section" id="home">
+        <div class="banner-container" id="bannerContainer">
+            <!-- Banner Image 1 -->
+            <div class="banner-slide active">
+                <div class="banner-content">
+                    <!-- <h1>Expert Dental Care For Your Perfect Smile</h1>
+                    <p>State-of-the-art facilities with compassionate care</p> -->
+                    <!-- <button class="banner-btn">Schedule Your Visit Today</button> -->
+                </div>
+            </div>
+            
+            <!-- Banner Image 2 -->
+            <div class="banner-slide">
+                <div class="banner-content">
+                    <!-- <h1>Aesthetic & Cosmetic Dentistry Excellence</h1>
+                    <p>Transform your smile with our advanced treatments</p> -->
+                    <!-- <button class="banner-btn">Book Aesthetic Consultation</button> -->
+                </div>
+            </div>
+            
+            <!-- Banner Image 3 -->
+            <div class="banner-slide">
+                <div class="banner-content">
+                    <!-- <h1>Pain-Free Dental Implants & Root Canals</h1>
+                    <p>Comfortable experience with sedation dentistry</p> -->
+                    <!-- <button class="banner-btn">Learn About Our Services</button> -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Banner Navigation -->
+        <button class="banner-arrow prev" id="bannerPrev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="banner-arrow next" id="bannerNext">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        
+        <div class="banner-nav" id="bannerNav">
+            <div class="banner-dot active" data-slide="0"></div>
+            <div class="banner-dot" data-slide="1"></div>
+            <div class="banner-dot" data-slide="2"></div>
+        </div>
+    </section>
+
+    <!-- Hero Quote Section -->
+    <section class="hero-quote-section">
+        <div class="container">
+            <h1 class="hero-quote fade-in-up">LIFE IS GOOD WHEN YOU SMILE ON!</h1>
+            <p class="hero-subquote fade-in-up">Caring For Your Smile</p>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section" id="video">
+        <div class="container">
+            <div class="video-content fade-in-up">
+                <h2>Virtual Clinic Tour</h2>
+                <p>Take a guided tour of our state-of-the-art dental facility. See our modern equipment, comfortable treatment rooms, and friendly staff that make CM Dental the perfect choice for your oral health needs.</p>
+            </div>
+            
+            <div class="video-container fade-in-up">
+                <div class="video-wrapper">
+                    <!-- Replace with your actual YouTube/Vimeo embed code -->
+                    <iframe 
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                        title="CM Dental Clinic Tour"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-overlay">
+                    <button class="video-play-btn" id="playVideo">
+                        <i class="fas fa-play"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clinic Photos Section -->
+    <section class="clinic-photos-section" id="photos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Clinic Gallery</h2>
+                <p>Explore our modern facilities and comfortable environment</p>
+            </div>
+            
+            <div class="photos-grid">
+                <!-- Photo 1 -->
+                <div class="photo-item fade-in-up" data-index="0">
+                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Modern Dental Chair">
+                    <div class="photo-overlay">
+                        <h4>Modern Treatment Room</h4>
+                        <p>State-of-the-art dental equipment</p>
+                    </div>
+                </div>
+                
+                <!-- Photo 2 -->
+                <div class="photo-item fade-in-up" data-index="1">
+                    <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Waiting Area">
+                    <div class="photo-overlay">
+                        <h4>Comfortable Waiting Area</h4>
+                        <p>Relaxing environment for patients</p>
+                    </div>
+                </div>
+                
+                <!-- Photo 3 -->
+                <div class="photo-item fade-in-up" data-index="2">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Dental Team">
+                    <div class="photo-overlay">
+                        <h4>Expert Dental Team</h4>
+                        <p>Qualified and experienced professionals</p>
+                    </div>
+                </div>
+                
+                <!-- Photo 4 -->
+                <div class="photo-item fade-in-up" data-index="3">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Pediatric Area">
+                    <div class="photo-overlay">
+                        <h4>Pediatric Dentistry</h4>
+                        <p>Kid-friendly treatment space</p>
+                    </div>
+                </div>
+                
+                <!-- Photo 5 -->
+                <div class="photo-item fade-in-up" data-index="4">
+                    <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Dental Lab">
+                    <div class="photo-overlay">
+                        <h4>In-house Dental Lab</h4>
+                        <p>Quick turnaround for procedures</p>
+                    </div>
+                </div>
+                
+                <!-- Photo 6 -->
+                <div class="photo-item fade-in-up" data-index="5">
+                    <img src="https://images.unsplash.com/photo-1556228578-9c360e1d8d34?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Technology">
+                    <div class="photo-overlay">
+                        <h4>Advanced Technology</h4>
+                        <p>Digital imaging and diagnostics</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Modal -->
+    <div class="photo-modal" id="photoModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <img id="modalImage" src="" alt="Clinic Photo">
+            <div class="modal-nav">
+                <button class="modal-nav-btn prev" id="prevPhoto">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="modal-nav-btn next" id="nextPhoto">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- About CM Dental Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-header">
+                <h2>Welcome to CM Dental</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text fade-in-left">
+                    <p>Your smile is our passion. We are glad you have chosen us for your oral health needs and hope our clinicians and staff exceed your expectations.</p>
+                    <p>CM provides an all-encompassing range of dental care, from basic diagnosis to advanced and complex reconstructive surgeries.</p>
+                    <p>We take care of everything to make your visit very enjoyable. CM Dental also treats you with honesty and compassion, unlike any other dental clinic.</p>
+                    <p>Our CM principles of being customer-friendly and cost-effective in offering all-encompassing dental solutions. We provide a wide variety of dental care services.</p>
+                    <p>Our team consists of general dentists, prosthodontists, periodontists, endodontists, implantologists, and oral surgeons, all of whom are ready to offer only the best treatment for all your oral hygiene and dental needs at an affordable price.</p>
+                </div>
+                <div class="about-image fade-in-right">
+                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="CM Dental Clinic">
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <!-- Treatments Section -->
+    <section class="treatments-section" id="treatments">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Treatments</h2>
+            </div>
+            <div class="treatments-grid">
+                <!-- Root Canal Treatment -->
+                <div class="treatment-card fade-in-up">
+                    <div class="treatment-image">
+                        <img src="images/treatments/root-canal.jpg" alt="Root Canal Treatment" onerror="this.src='https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                    </div>
+                    <div class="treatment-header">
+                        <h3>Root Canal Treatment</h3>
+                    </div>
+                    <div class="treatment-body">
+                        <p>A Root Canal Is A Treatment To Repair And Save A Badly Damaged Or Infected Tooth Instead Of Removing It.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Pediatric Dentistry -->
+                <div class="treatment-card fade-in-up">
+                    <div class="treatment-image">
+                        <img src="images/treatments/pediatric-dentistry.jpg" alt="Pediatric Dentistry" onerror="this.src='https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                    </div>
+                    <div class="treatment-header">
+                        <h3>Pediatric Dentistry</h3>
+                    </div>
+                    <div class="treatment-body">
+                        <p>Pediatric Dentistry Cares For Children's Oral Health From Infancy Through The Teenage Years.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Implant Dentistry -->
+                <div class="treatment-card fade-in-up">
+                    <div class="treatment-image">
+                        <img src="images/treatments/implant-dentistry.jpg" alt="Implant Dentistry" onerror="this.src='https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                    </div>
+                    <div class="treatment-header">
+                        <h3>Implant Dentistry</h3>
+                    </div>
+                    <div class="treatment-body">
+                        <p>The Dental Implant System Works Much Like The Biological Root Of A Tooth For A Permanent Solution.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Dentures / Complete Denture -->
+                <div class="treatment-card fade-in-up">
+                    <div class="treatment-image">
+                        <img src="images/treatments/dentures.jpg" alt="Dentures" onerror="this.src='https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                    </div>
+                    <div class="treatment-header">
+                        <h3>Dentures / Complete Denture</h3>
+                    </div>
+                    <div class="treatment-body">
+                        <p>Dentures Are Prosthetic Devices Constructed To Replace Missing Teeth And Supported By Surrounding Tissues.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Teeth Whitening -->
+                <div class="treatment-card fade-in-up">
+                    <div class="treatment-image">
+                        <img src="images/treatments/teeth-whitening.jpg" alt="Teeth Whitening" onerror="this.src='https://images.unsplash.com/photo-1621293954908-907159247fc8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                    </div>
+                    <div class="treatment-header">
+                        <h3>Teeth Whitening</h3>
+                    </div>
+                    <div class="treatment-body">
+                        <p>Teeth Whitening Involves Bleaching Your Teeth To Make Them Lighter While Keeping Them Healthy.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Orthodontic Braces -->
+                <div class="treatment-card fade-in-up">
+                    <div class="treatment-image">
+                        <img src="images/treatments/braces.jpg" alt="Orthodontic Braces" onerror="this.src='https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                    </div>
+                    <div class="treatment-header">
+                        <h3>Orthodontic Braces</h3>
+                    </div>
+                    <div class="treatment-body">
+                        <p>Orthodontic Treatment Used To Diagnose And Correct Improperly Positioned Teeth And Jaws.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Cosmetic Dentistry -->
+                <div class="treatment-card fade-in-up">
+                    <div class="treatment-image">
+                        <img src="images/treatments/cosmetic-dentistry.jpg" alt="Cosmetic Dentistry" onerror="this.src='https://images.unsplash.com/photo-1563201517-6df74c7fdf29?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                    </div>
+                    <div class="treatment-header">
+                        <h3>Cosmetic Dentistry</h3>
+                    </div>
+                    <div class="treatment-body">
+                        <p>Enhance your smile with veneers, bonding, crowns, and other aesthetic treatments for a beautiful, natural-looking smile.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Teeth Cleaning -->
+                <div class="treatment-card fade-in-up">
+                    <div class="treatment-image">
+                        <img src="images/treatments/teeth-cleaning.jpg" alt="Teeth Cleaning" onerror="this.src='https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                    </div>
+                    <div class="treatment-header">
+                        <h3>Teeth Cleaning</h3>
+                    </div>
+                    <div class="treatment-body">
+                        <p>Professional teeth cleaning to remove plaque and tartar, preventing gum disease and maintaining optimal oral health.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Customer Reviews</h2>
+            </div>
+            <div class="reviews-container">
+                <div class="rating fade-in-up">
+                    <div class="rating-number">5.0</div>
+                    <div>
+                        <div class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>Based on 1,200+ reviews</p>
+                    </div>
+                </div>
+                <div class="platforms">
+                    <div class="platform-item fade-in-up"><span>Google</span></div>
+                    <div class="platform-item fade-in-up"><span>Yelp</span></div>
+                    <div class="platform-item fade-in-up"><span>Healthgrades</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Get In Touch</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#video">Clinic Tour</a></li>
+                        <li><a href="#photos">Gallery</a></li>
+                        <li><a href="#specialities">Specialities</a></li>
+                        <li><a href="#treatments">Treatments</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Link</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Main Street, Dental District, City, State 12345</p>
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> info@cmdental.com</p>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Branch 1 - Downtown</h3>
+                    <div class="branch-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Main Street, Downtown, City, State 12345</p>
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> downtown@cmdental.com</p>
+                    </div>
+                    <h3>Branch 2 - Midtown</h3>
+                    <div class="branch-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 456 Center Avenue, Midtown, City, State 12345</p>
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4568</p>
+                        <p><i class="fas fa-envelope"></i> midtown@cmdental.com</p>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Branch 3 - Uptown</h3>
+                    <div class="branch-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 789 Hill Street, Uptown, City, State 12345</p>
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4569</p>
+                        <p><i class="fas fa-envelope"></i> uptown@cmdental.com</p>
+                    </div>
+                    <h3>Working Hours</h3>
+                    <div class="branch-info">
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 9AM-7PM</p>
+                        <p><i class="fas fa-clock"></i> Saturday: 9AM-5PM</p>
+                        <p><i class="fas fa-clock"></i> Sunday: 10AM-4PM</p>
+                        <p><i class="fas fa-clock"></i> Emergency: 24/7</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 CM DENTAL. All Rights Reserved.</p>
+                <div class="footer-logo">
+                    <h2>CM DENTAL</h2>
+                    <p>Aesthetic | Root Canal | Implant Centre</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Appointment buttons functionality
+        document.querySelectorAll('.appointment-btn, .banner-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                alert('Thank you for choosing CM Dental! Our team will contact you shortly to schedule your appointment.');
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.main-header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Banner Slider Functionality
+        class BannerSlider {
+            constructor() {
+                this.bannerContainer = document.getElementById('bannerContainer');
+                this.bannerSlides = document.querySelectorAll('.banner-slide');
+                this.bannerDots = document.querySelectorAll('.banner-dot');
+                this.prevBtn = document.getElementById('bannerPrev');
+                this.nextBtn = document.getElementById('bannerNext');
+                this.currentSlide = 0;
+                this.totalSlides = this.bannerSlides.length;
+                this.autoSlideInterval = null;
+                
+                this.init();
+            }
+            
+            init() {
+                // Set up event listeners
+                this.prevBtn.addEventListener('click', () => this.prevSlide());
+                this.nextBtn.addEventListener('click', () => this.nextSlide());
+                
+                // Dot navigation
+                this.bannerDots.forEach(dot => {
+                    dot.addEventListener('click', (e) => {
+                        const slideIndex = parseInt(e.target.getAttribute('data-slide'));
+                        this.goToSlide(slideIndex);
+                    });
+                });
+                
+                // Start auto slide
+                this.startAutoSlide();
+                
+                // Pause on hover
+                this.bannerContainer.addEventListener('mouseenter', () => this.stopAutoSlide());
+                this.bannerContainer.addEventListener('mouseleave', () => this.startAutoSlide());
+            }
+            
+            goToSlide(index) {
+                // Update current slide
+                this.currentSlide = index;
+                
+                // Update slides
+                this.bannerSlides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === index);
+                });
+                
+                // Update dots
+                this.bannerDots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === index);
+                });
+            }
+            
+            nextSlide() {
+                this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+                this.goToSlide(this.currentSlide);
+            }
+            
+            prevSlide() {
+                this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+                this.goToSlide(this.currentSlide);
+            }
+            
+            startAutoSlide() {
+                this.stopAutoSlide();
+                this.autoSlideInterval = setInterval(() => this.nextSlide(), 5000);
+            }
+            
+            stopAutoSlide() {
+                if (this.autoSlideInterval) {
+                    clearInterval(this.autoSlideInterval);
+                    this.autoSlideInterval = null;
+                }
+            }
+        }
+
+        // Video Play Functionality
+        const playVideoBtn = document.getElementById('playVideo');
+        const videoIframe = document.querySelector('.video-wrapper iframe');
+        
+        playVideoBtn.addEventListener('click', () => {
+            // In a real implementation, you would play the video
+            // This could involve changing the iframe src to include autoplay
+            alert('Video playback would start here. In production, this would trigger the embedded video to play.');
+        });
+
+        // Photo Gallery Modal Functionality
+        const photoModal = document.getElementById('photoModal');
+        const modalImage = document.getElementById('modalImage');
+        const closeModal = document.getElementById('closeModal');
+        const prevPhoto = document.getElementById('prevPhoto');
+        const nextPhoto = document.getElementById('nextPhoto');
+        const photoItems = document.querySelectorAll('.photo-item');
+        
+        let currentPhotoIndex = 0;
+        const photoUrls = [
+            'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            'https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            'https://images.unsplash.com/photo-1556228578-9c360e1d8d34?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+        ];
+
+        // Open modal when clicking on a photo
+        photoItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                currentPhotoIndex = index;
+                modalImage.src = photoUrls[index];
+                photoModal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            });
+        });
+
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            photoModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close modal when clicking outside the image
+        photoModal.addEventListener('click', (e) => {
+            if (e.target === photoModal) {
+                photoModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Previous photo
+        prevPhoto.addEventListener('click', () => {
+            currentPhotoIndex = (currentPhotoIndex - 1 + photoUrls.length) % photoUrls.length;
+            modalImage.src = photoUrls[currentPhotoIndex];
+        });
+
+        // Next photo
+        nextPhoto.addEventListener('click', () => {
+            currentPhotoIndex = (currentPhotoIndex + 1) % photoUrls.length;
+            modalImage.src = photoUrls[currentPhotoIndex];
+        });
+
+        // Keyboard navigation for photo modal
+        document.addEventListener('keydown', (e) => {
+            if (photoModal.classList.contains('active')) {
+                if (e.key === 'Escape') {
+                    photoModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                } else if (e.key === 'ArrowLeft') {
+                    prevPhoto.click();
+                } else if (e.key === 'ArrowRight') {
+                    nextPhoto.click();
+                }
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animation classes
+        document.querySelectorAll('.fade-in-left, .fade-in-right, .fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Initialize banner slider
+        document.addEventListener('DOMContentLoaded', () => {
+            new BannerSlider();
+        });
+    </script>
+</body>
+</html>
