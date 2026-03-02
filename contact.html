@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <!-- Add this line to link your favicon -->
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8CB12E;
+            --primary-dark: #6F8F23;
+            --primary-light: #A9C94E;
+            --secondary: #f8f9fa;
+            --accent: #e63946;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333;
+            --text: #444;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Header Styles (consistent with treatments page) */
+        .top-header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 14px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        }
+
+        .top-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-contact span {
+            margin-right: 20px;
+        }
+
+        .header-contact i {
+            margin-right: 5px;
+        }
+
+        .social-icons a {
+            color: var(--white);
+            margin-left: 15px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            opacity: 0.8;
+            transform: translateY(-2px);
+        }
+
+        .main-header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+            max-width: 200px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            margin-left: 10px;
+        }
+
+        .logo-text h1 {
+            color: var(--primary);
+            font-size: 24px;
+            margin-bottom: 3px;
+            letter-spacing: 1px;
+        }
+
+        .logo-text p {
+            color: var(--dark-gray);
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .appointment-btn {
+            background-color: var(--accent);
+            color: var(--white);
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-left: 30px;
+        }
+
+        .appointment-btn:hover {
+            background-color: #c1121f;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu-btn:hover {
+            transform: rotate(90deg);
+        }
+
+        /* Contact Hero Banner */
+        .contact-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .contact-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .contact-hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .breadcrumb a {
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--primary-light);
+        }
+
+        .breadcrumb span {
+            margin: 0 10px;
+            color: #aaa;
+        }
+
+        /* Contact Info Cards */
+        .contact-info-section {
+            padding: 80px 0 50px;
+            background-color: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .contact-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-bottom: 4px solid transparent;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            border-bottom-color: var(--primary);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(140, 177, 46, 0.1), rgba(111, 143, 35, 0.1));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 32px;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .contact-card:hover .contact-icon {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+        }
+
+        .contact-card h3 {
+            font-size: 22px;
+            color: var(--dark-gray);
+            margin-bottom: 15px;
+        }
+
+        .contact-card p {
+            font-size: 16px;
+            color: var(--text);
+            line-height: 1.7;
+            margin-bottom: 5px;
+        }
+
+        .contact-card a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-card a:hover {
+            color: var(--primary);
+        }
+
+        /* Three Branches - Mogappair, Ambattur, Karanodai */
+        .branches-section {
+            padding: 50px 0 70px;
+            background-color: var(--light-gray);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .branches-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .branch-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .branch-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .branch-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 25px 20px;
+            text-align: center;
+        }
+
+        .branch-header h3 {
+            font-size: 26px;
+            margin-bottom: 5px;
+            color: var(--white);
+        }
+
+        .branch-header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .branch-details {
+            padding: 30px;
+        }
+
+        .branch-detail-item {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .branch-detail-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(140, 177, 46, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            margin-right: 15px;
+            flex-shrink: 0;
+            font-size: 16px;
+        }
+
+        .branch-detail-text {
+            flex: 1;
+        }
+
+        .branch-detail-text h4 {
+            font-size: 16px;
+            color: var(--dark-gray);
+            margin-bottom: 5px;
+        }
+
+        .branch-detail-text p {
+            font-size: 15px;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .branch-detail-text a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .branch-detail-text a:hover {
+            color: var(--primary);
+        }
+
+        .branch-map-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .branch-map-link i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+
+        .branch-map-link:hover {
+            color: var(--primary-dark);
+        }
+
+        .branch-map-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* GOOGLE MAP SECTION - FULL WIDTH */
+        .map-section {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .map-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 5px solid var(--white);
+            height: 450px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        .map-info {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .map-info p {
+            font-size: 18px;
+            color: var(--text);
+        }
+
+        .map-info i {
+            color: var(--accent);
+            margin-right: 8px;
+        }
+
+        /* Contact Form Section */
+        .form-section {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+
+        .form-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            background-color: var(--white);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-title h3 {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .form-title p {
+            font-size: 16px;
+            color: var(--text);
+            margin-bottom: 30px;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Open Sans', sans-serif;
+            transition: border 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form select:focus,
+        .contact-form textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(140, 177, 46, 0.1);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            border: none;
+            padding: 16px 35px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(140, 177, 46, 0.3);
+        }
+
+        .form-info {
+            background: linear-gradient(135deg, rgba(140, 177, 46, 0.05), rgba(111, 143, 35, 0.05));
+            padding: 40px;
+            border-radius: 15px;
+        }
+
+        .form-info h4 {
+            font-size: 22px;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+
+        .form-info-item {
+            display: flex;
+            margin-bottom: 25px;
+            align-items: flex-start;
+        }
+
+        .form-info-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            margin-right: 15px;
+            font-size: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .form-info-text h5 {
+            font-size: 18px;
+            color: var(--dark-gray);
+            margin-bottom: 5px;
+        }
+
+        .form-info-text p {
+            font-size: 15px;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .emergency-note {
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .emergency-note i {
+            margin-right: 8px;
+        }
+
+        /* Footer (consistent) */
+        footer {
+            background-color: #222;
+            color: var(--white);
+            padding: 70px 0 30px;
+            background: linear-gradient(135deg, #222 0%, #333 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            color: var(--white);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            color: #aaa;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--primary);
+            margin-top: 3px;
+        }
+
+        .branch-info {
+            margin-bottom: 25px;
+        }
+
+        .branch-info h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+        }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .footer-content { grid-template-columns: repeat(2,1fr); }
+            .branches-grid { grid-template-columns: repeat(2,1fr); }
+            .contact-grid { grid-template-columns: repeat(2,1fr); }
+            .form-wrapper { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 900px) {
+            .contact-hero h1 { font-size: 36px; }
+            .branches-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .top-header { display: none; }
+            .main-header .container { flex-wrap: wrap; }
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                margin-top: 20px;
+            }
+            .nav-links.active { display: flex; }
+            .nav-links li { margin: 10px 0; }
+            .mobile-menu-btn { display: block; }
+            .appointment-btn { margin-left: 0; margin-top: 15px; }
+            .section-title h2 { font-size: 32px; }
+            .map-container { height: 350px; }
+            .form-wrapper { padding: 30px; }
+        }
+        @media (max-width: 576px) {
+            .footer-content { grid-template-columns: 1fr; }
+            .map-container { height: 300px; }
+            .contact-card { padding: 30px 20px; }
+            .branch-header h3 { font-size: 22px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Header -->
+    <div class="top-header">
+        <div class="container">
+            <div class="header-contact">
+                <span><i class="fas fa-phone-alt"></i> +91 - 7200080011</span>
+                <span><i class="fas fa-envelope"></i> contact@cmdental.in</span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="CM Dental Logo" class="logo-img">
+                <div class="logo-text">
+                    <!-- <h1>CM DENTAL</h1>
+                    <p>Aesthetic | Root Canal | Implant Centre</p> -->
+                </div>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="treatments.html">Treatments</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+            <button class="appointment-btn">BOOK AN APPOINTMENT</button>
+        </div>
+    </header>
+
+    <!-- Contact Hero Banner -->
+    <section class="contact-hero">
+        <div class="container">
+            <div class="contact-hero-content fade-in-up">
+                <h1>Get In Touch</h1>
+                <p>Your smile is our priority. Reach out to us for appointments, inquiries, or emergency care.</p>
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>/</span>
+                    <span>Contact</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info Cards (Main contact numbers) -->
+    <section class="contact-info-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Phone Card -->
+                <div class="contact-card fade-in-up">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Call Us</h3>
+                    <p><a href="tel:+917200080011">+91 - 7200080011</a></p>
+                    <p><a href="tel:+917200080011">+91 - 7200080011</a></p>
+                    <p style="margin-top: 10px; color: var(--primary);">24/7 Emergency</p>
+                </div>
+                <!-- Email Card -->
+                <div class="contact-card fade-in-up" data-delay="0.1">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Us</h3>
+                    <p><a href="mailto:contact@cmdental.in">contact@cmdental.in</a></p>
+                    <p><a href="mailto:care@cmdental.in">care@cmdental.in</a></p>
+                    <p style="margin-top: 10px;">We reply within 2 hours</p>
+                </div>
+                <!-- Location Card -->
+                <div class="contact-card fade-in-up" data-delay="0.2">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Our Branches</h3>
+                    <p>Mogappair | Ambattur | Karanodai</p>
+                    <p style="margin-top: 10px; color: var(--primary);">View map below</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Three Branches: Mogappair, Ambattur, Karanodai (as per request) -->
+    <section class="branches-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Dental Clinics</h2>
+                <p>Conveniently located to serve you better</p>
+            </div>
+            <div class="branches-grid">
+                <!-- Mogappair Branch -->
+                <div class="branch-card fade-in-left">
+                    <div class="branch-header">
+                        <h3>Mogappair</h3>
+                        <p>West & East Mogappair</p>
+                    </div>
+                    <div class="branch-details">
+                        <div class="branch-detail-item">
+                            <div class="branch-detail-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="branch-detail-text">
+                                <h4>Address</h4>
+                                <p>No. 45, Mogappair Main Road, Mogappair West, Chennai - 600037</p>
+                            </div>
+                        </div>
+                        <div class="branch-detail-item">
+                            <div class="branch-detail-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="branch-detail-text">
+                                <h4>Phone</h4>
+                                <p><a href="tel:+917200080011">+91 - 7200080011</a> (Reception)</p>
+                                <p><a href="tel:+914449876543">+91 - 44 4987 6543</a></p>
+                            </div>
+                        </div>
+                        <div class="branch-detail-item">
+                            <div class="branch-detail-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="branch-detail-text">
+                                <h4>Timings</h4>
+                                <p>Mon - Sat: 9:00 AM - 8:00 PM</p>
+                                <p>Sunday: 10:00 AM - 2:00 PM</p>
+                            </div>
+                        </div>
+                        <a href="https://maps.google.com/?q=Mogappair+Chennai" target="_blank" class="branch-map-link">
+                            Get Directions <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Ambattur Branch -->
+                <div class="branch-card fade-in-up">
+                    <div class="branch-header">
+                        <h3>Ambattur</h3>
+                        <p>Ambattur OT & Industrial Estate</p>
+                    </div>
+                    <div class="branch-details">
+                        <div class="branch-detail-item">
+                            <div class="branch-detail-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="branch-detail-text">
+                                <h4>Address</h4>
+                                <p>No. 12, Red Hills Road, Ambattur OT, Chennai - 600053</p>
+                            </div>
+                        </div>
+                        <div class="branch-detail-item">
+                            <div class="branch-detail-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="branch-detail-text">
+                                <h4>Phone</h4>
+                                <p><a href="tel:+917200080011">+91 - 7200080011</a> (Reception)</p>
+                                <p><a href="tel:+914426753890">+91 - 44 2675 3890</a></p>
+                            </div>
+                        </div>
+                        <div class="branch-detail-item">
+                            <div class="branch-detail-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="branch-detail-text">
+                                <h4>Timings</h4>
+                                <p>Mon - Sat: 9:30 AM - 8:30 PM</p>
+                                <p>Sunday: Closed</p>
+                            </div>
+                        </div>
+                        <a href="https://maps.google.com/?q=Ambattur+Chennai" target="_blank" class="branch-map-link">
+                            Get Directions <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Karanodai Branch -->
+                <div class="branch-card fade-in-right">
+                    <div class="branch-header">
+                        <h3>Karanodai</h3>
+                        <p>Near Ponneri & Red Hills</p>
+                    </div>
+                    <div class="branch-details">
+                        <div class="branch-detail-item">
+                            <div class="branch-detail-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="branch-detail-text">
+                                <h4>Address</h4>
+                                <p>No. 3/67, GNT Road, Karanodai, Chennai - 600067</p>
+                            </div>
+                        </div>
+                        <div class="branch-detail-item">
+                            <div class="branch-detail-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="branch-detail-text">
+                                <h4>Phone</h4>
+                                <p><a href="tel:+917200080011">+91 - 7200080011</a> (Reception)</p>
+                                <p><a href="tel:+914427893211">+91 - 44 2789 3211</a></p>
+                            </div>
+                        </div>
+                        <div class="branch-detail-item">
+                            <div class="branch-detail-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="branch-detail-text">
+                                <h4>Timings</h4>
+                                <p>Mon - Sat: 9:00 AM - 7:30 PM</p>
+                                <p>Sunday: 9:00 AM - 1:00 PM</p>
+                            </div>
+                        </div>
+                        <a href="https://maps.google.com/?q=Karanodai+Chennai" target="_blank" class="branch-map-link">
+                            Get Directions <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GOOGLE MAP SECTION - as requested -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Find Us On Map</h2>
+                <p>Central location – visit our main clinic or any branch near you</p>
+            </div>
+            <!-- Google Map Embed - Main location (Ambattur as central) -->
+            <div class="map-container fade-in-up">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124377.09708315714!2d80.12749501412502!3d13.114340249368105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5263f169e7d0ef%3A0x8c6e0ff220e0e3b0!2sAmbattur%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1698765432100!5m2!1sen!2sin" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <div class="map-info">
+                <p><i class="fas fa-location-dot"></i> We have clinics in Mogappair, Ambattur & Karanodai — all accessible via major roads.</p>
+                <p style="margin-top: 10px;"><strong>Emergency:</strong> Call +91 - 7200080011 for immediate assistance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="form-section">
+        <div class="container">
+            <div class="form-wrapper fade-in-up">
+                <div class="form-content">
+                    <div class="form-title">
+                        <h3>Send Us a Message</h3>
+                        <p>Have a question or want to schedule an appointment? Fill out the form and we'll get back to you shortly.</p>
+                    </div>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Full Name *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Your Phone Number *" required>
+                        </div>
+                        <div class="form-group">
+                            <select>
+                                <option value="">Select Branch</option>
+                                <option value="mogappair">Mogappair</option>
+                                <option value="ambattur">Ambattur</option>
+                                <option value="karanodai">Karanodai</option>
+                                <option value="other">Other / Not sure</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message / Preferred appointment date *" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Book Appointment</button>
+                    </form>
+                </div>
+                <div class="form-info">
+                    <h4>Why Choose CM Dental?</h4>
+                    <div class="form-info-item">
+                        <div class="form-info-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="form-info-text">
+                            <h5>15+ Years Experience</h5>
+                            <p>Trusted by thousands of patients across Chennai</p>
+                        </div>
+                    </div>
+                    <div class="form-info-item">
+                        <div class="form-info-icon">
+                            <i class="fas fa-tooth"></i>
+                        </div>
+                        <div class="form-info-text">
+                            <h5>Advanced Technology</h5>
+                            <p>Digital X-rays, CBCT, CAD/CAM, painless anesthesia</p>
+                        </div>
+                    </div>
+                    <div class="form-info-item">
+                        <div class="form-info-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="form-info-text">
+                            <h5>Multi-specialty Team</h5>
+                            <p>Implantologists, endodontists, orthodontists, prosthodontists</p>
+                        </div>
+                    </div>
+                    <div class="form-info-item">
+                        <div class="form-info-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="form-info-text">
+                            <h5>Infection Control</h5>
+                            <p>Strict sterilization protocols for your safety</p>
+                        </div>
+                    </div>
+                    <div class="emergency-note">
+                        <i class="fas fa-phone-alt"></i> Dental Emergency? Call +91 - 7200080011 (24/7)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Get In Touch</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="treatments.html">Treatments</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Link</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Corporate: 123 Dental District, Chennai</p>
+                        <p><i class="fas fa-phone"></i> +91 - 7200080011</p>
+                        <p><i class="fas fa-envelope"></i> contact@cmdental.in</p>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Branches</h3>
+                    <div class="branch-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Mogappair, Chennai</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Ambattur, Chennai</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Karanodai, Chennai</p>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Working Hours</h3>
+                    <div class="branch-info">
+                        <p><i class="fas fa-clock"></i> Mon-Sat: 9AM - 10PM</p>
+                        <p><i class="fas fa-clock"></i> Sunday: Select branches</p>
+                        <p><i class="fas fa-clock"></i> Emergency: 24/7</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 CM DENTAL. All Rights Reserved. </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Appointment buttons functionality
+        document.querySelectorAll('.appointment-btn, .submit-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if (btn.type !== 'submit') e.preventDefault();
+                alert('Thank you for choosing CM Dental! Our team will contact you shortly to schedule your appointment.');
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.main-header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = { threshold: 0.2, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Prevent default form submission for demo
+        document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Your message has been sent! We will get back to you soon.');
+        });
+
+        // Active link based on current page
+        const currentPage = window.location.pathname.split("/").pop() || 'contact.html';
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+                link.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
